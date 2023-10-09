@@ -35,6 +35,8 @@ const eleves = [
   <Column field="age" header="age"></Column>
   <Column field="notes" header="notes"></Column>
 </DataTable>
+  <Button label="Hey you" severity="warning">
+  </Button>
 </template>
 
 <style scoped>
