@@ -1,6 +1,6 @@
 {
   "value": {
-    "id": 4975457488,
+    "id": 4966959184,
     "name": "MetaStep",
     "description": "Step description...",
     "configuration": {}
@@ -8,7 +8,7 @@
   "children": [
     {
       "value": {
-        "id": 4975369808,
+        "id": 4967088400,
         "name": "Split date to train and test set",
         "description": "Step description...",
         "configuration": {
@@ -27,7 +27,7 @@
       "children": [
         {
           "value": {
-            "id": 4975499792,
+            "id": 4966966800,
             "name": "MetaStep",
             "description": "Step description...",
             "configuration": {}
@@ -35,62 +35,62 @@
           "children": [
             {
               "value": {
-                "id": 4975499984,
-                "name": "Drop textual column",
+                "id": 4967090256,
+                "name": "Transform string column to date",
                 "description": "Step description...",
                 "configuration": {
-                  "ratio": {
-                    "description": "Description of the parameter's role",
-                    "default": 0.8,
-                    "value": 0.8
-                  },
-                  "random_state": {
-                    "description": "Description of the parameter's role",
-                    "default": 12,
-                    "value": 12
+                  "threshold_ratio": {
+                    "description": "Threshold on the ratio : successful cast / total row (without null values). Columns over the threshold will be cast to date",
+                    "default": 0.9,
+                    "value": 0.9
                   }
                 }
               },
               "children": [
                 {
                   "value": {
-                    "id": 4964094352,
-                    "name": "Fill missing values with mean",
+                    "id": 4962397968,
+                    "name": "Transform string column to date",
                     "description": "Step description...",
-                    "configuration": {
-                      "empty_threshold": {
-                        "description": "Column with less or equal proportion of empty row will be fill with mean value. 1 will always fill void values",
-                        "default": 0.5,
-                        "value": 0.5
-                      }
-                    }
+                    "configuration": {}
                   },
                   "children": [
                     {
                       "value": {
-                        "id": 4964781648,
-                        "name": "Transform string column to date",
+                        "id": 4961268112,
+                        "name": "Fill missing values with mean",
                         "description": "Step description...",
                         "configuration": {
-                          "threshold_ratio": {
-                            "description": "Threshold on the ratio : successful cast / total row (without null values). Columns over the threshold will be cast to date",
-                            "default": 0.9,
-                            "value": 0.9
+                          "empty_threshold": {
+                            "description": "Column with less or equal proportion of empty row will be fill with mean value. 1 will always fill void values",
+                            "default": 0.5,
+                            "value": 0.5
                           }
                         }
                       },
                       "children": [
                         {
                           "value": {
-                            "id": 4975369744,
-                            "name": "TF-IDF",
+                            "id": 4958685904,
+                            "name": "Drop date column",
                             "description": "Step description...",
-                            "configuration": {}
+                            "configuration": {
+                              "ratio": {
+                                "description": "Description of the parameter's role",
+                                "default": 0.8,
+                                "value": 0.8
+                              },
+                              "random_state": {
+                                "description": "Description of the parameter's role",
+                                "default": 12,
+                                "value": 12
+                              }
+                            }
                           },
                           "children": [
                             {
                               "value": {
-                                "id": 4975497744,
+                                "id": 4949957648,
                                 "name": "Drop Numerical Column",
                                 "description": "Step description...",
                                 "configuration": {
@@ -104,7 +104,7 @@
                               "children": [
                                 {
                                   "value": {
-                                    "id": 4971437520,
+                                    "id": 4967090896,
                                     "name": "One hot encoding categorical features",
                                     "description": "Step description...",
                                     "configuration": {
@@ -123,16 +123,16 @@
                                   "children": [
                                     {
                                       "value": {
-                                        "id": 4970939152,
-                                        "name": "Transform string column to date",
+                                        "id": 4967094672,
+                                        "name": "TF-IDF",
                                         "description": "Step description...",
                                         "configuration": {}
                                       },
                                       "children": [
                                         {
                                           "value": {
-                                            "id": 4975366352,
-                                            "name": "Drop date column",
+                                            "id": 4967094608,
+                                            "name": "Drop textual column",
                                             "description": "Step description...",
                                             "configuration": {
                                               "ratio": {
@@ -150,807 +150,493 @@
                                           "children": [
                                             {
                                               "value": {
-                                                "id": 4975366352,
-                                                "name": "Drop date column",
+                                                "id": 4967045904,
+                                                "name": "MetaStep",
                                                 "description": "Step description...",
-                                                "configuration": {
-                                                  "ratio": {
-                                                    "description": "Description of the parameter's role",
-                                                    "default": 0.8,
-                                                    "value": 0.8
-                                                  },
-                                                  "random_state": {
-                                                    "description": "Description of the parameter's role",
-                                                    "default": 12,
-                                                    "value": 12
-                                                  }
-                                                }
+                                                "configuration": {}
                                               },
-                                              "children": []
+                                              "children": [
+                                                {
+                                                  "value": {
+                                                    "id": 4967094736,
+                                                    "name": "MetaStep",
+                                                    "description": "Step description...",
+                                                    "configuration": {}
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "value": {
+                                                        "id": 4967095056,
+                                                        "name": "Random Over Sampling",
+                                                        "description": "Step description...",
+                                                        "configuration": {}
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "value": {
+                                                            "id": 4950028624,
+                                                            "name": "Min Max Scaler",
+                                                            "description": "Step description...",
+                                                            "configuration": {}
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "value": {
+                                                                "id": 4962397776,
+                                                                "name": "MetaExplorerStep",
+                                                                "description": "Step description...",
+                                                                "configuration": {}
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "value": {
+                                                                    "id": 4938750480,
+                                                                    "name": "Wrap : Genetic GridSearch",
+                                                                    "description": "Step description...",
+                                                                    "configuration": {
+                                                                      "initial_modificator": {
+                                                                        "description": "Maximum multiplier of default value to generate the first generation of steps",
+                                                                        "default": 5,
+                                                                        "value": 5
+                                                                      },
+                                                                      "nb_generations": {
+                                                                        "description": "Number of generations to create, train and test",
+                                                                        "default": 10,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 10
+                                                                      },
+                                                                      "nb_estimators": {
+                                                                        "description": "Number of Steps by generations",
+                                                                        "default": 30,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 30
+                                                                      },
+                                                                      "mutation_power": {
+                                                                        "description": "Maximum multiplier of current value when mutating",
+                                                                        "default": 0.1,
+                                                                        "range": [
+                                                                          0.001,
+                                                                          1
+                                                                        ],
+                                                                        "value": 0.1
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "value": {
+                                                                        "id": 4967095184,
+                                                                        "name": "Learn : Logistic regression",
+                                                                        "description": "Step description...",
+                                                                        "configuration": {
+                                                                          "max_iterations": {
+                                                                            "description": "Maximum number of iterations",
+                                                                            "default": 1000,
+                                                                            "range": [
+                                                                              1,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 1000
+                                                                          },
+                                                                          "random_state": {
+                                                                            "description": "random_state",
+                                                                            "default": 42,
+                                                                            "value": 42
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "value": {
+                                                                    "id": 4967095696,
+                                                                    "name": "Wrap : Genetic GridSearch",
+                                                                    "description": "Step description...",
+                                                                    "configuration": {
+                                                                      "initial_modificator": {
+                                                                        "description": "Maximum multiplier of default value to generate the first generation of steps",
+                                                                        "default": 5,
+                                                                        "value": 5
+                                                                      },
+                                                                      "nb_generations": {
+                                                                        "description": "Number of generations to create, train and test",
+                                                                        "default": 10,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 10
+                                                                      },
+                                                                      "nb_estimators": {
+                                                                        "description": "Number of Steps by generations",
+                                                                        "default": 30,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 30
+                                                                      },
+                                                                      "mutation_power": {
+                                                                        "description": "Maximum multiplier of current value when mutating",
+                                                                        "default": 0.1,
+                                                                        "range": [
+                                                                          0.001,
+                                                                          1
+                                                                        ],
+                                                                        "value": 0.1
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "value": {
+                                                                        "id": 4967095376,
+                                                                        "name": "Learn : Gaussian NB",
+                                                                        "description": "Step description...",
+                                                                        "configuration": {}
+                                                                      },
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "value": {
+                                                                    "id": 4967097040,
+                                                                    "name": "Wrap : Genetic GridSearch",
+                                                                    "description": "Step description...",
+                                                                    "configuration": {
+                                                                      "initial_modificator": {
+                                                                        "description": "Maximum multiplier of default value to generate the first generation of steps",
+                                                                        "default": 5,
+                                                                        "value": 5
+                                                                      },
+                                                                      "nb_generations": {
+                                                                        "description": "Number of generations to create, train and test",
+                                                                        "default": 10,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 10
+                                                                      },
+                                                                      "nb_estimators": {
+                                                                        "description": "Number of Steps by generations",
+                                                                        "default": 30,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 30
+                                                                      },
+                                                                      "mutation_power": {
+                                                                        "description": "Maximum multiplier of current value when mutating",
+                                                                        "default": 0.1,
+                                                                        "range": [
+                                                                          0.001,
+                                                                          1
+                                                                        ],
+                                                                        "value": 0.1
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "value": {
+                                                                        "id": 4967096208,
+                                                                        "name": "Learn : SVM",
+                                                                        "description": "Step description...",
+                                                                        "configuration": {
+                                                                          "kernel": {
+                                                                            "description": "Kernel to use in the SVM",
+                                                                            "default": "rbf",
+                                                                            "categorical": [
+                                                                              "linear",
+                                                                              "poly",
+                                                                              "rbf",
+                                                                              "sigmoid"
+                                                                            ],
+                                                                            "value": "rbf"
+                                                                          },
+                                                                          "random_state": {
+                                                                            "description": "random_state",
+                                                                            "default": 42,
+                                                                            "value": 42
+                                                                          },
+                                                                          "probability": {
+                                                                            "description": "If true, the output will be a probability. If false, it will be Binary",
+                                                                            "default": false,
+                                                                            "value": false
+                                                                          },
+                                                                          "class_weight": {
+                                                                            "description": "Can be set on \"balenced\" to improve results on unbalenced data",
+                                                                            "default": null,
+                                                                            "categorical": [
+                                                                              null,
+                                                                              "balanced"
+                                                                            ],
+                                                                            "value": null
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "value": {
+                                                                    "id": 4967098512,
+                                                                    "name": "Wrap : Genetic GridSearch",
+                                                                    "description": "Step description...",
+                                                                    "configuration": {
+                                                                      "initial_modificator": {
+                                                                        "description": "Maximum multiplier of default value to generate the first generation of steps",
+                                                                        "default": 5,
+                                                                        "value": 5
+                                                                      },
+                                                                      "nb_generations": {
+                                                                        "description": "Number of generations to create, train and test",
+                                                                        "default": 10,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 10
+                                                                      },
+                                                                      "nb_estimators": {
+                                                                        "description": "Number of Steps by generations",
+                                                                        "default": 30,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 30
+                                                                      },
+                                                                      "mutation_power": {
+                                                                        "description": "Maximum multiplier of current value when mutating",
+                                                                        "default": 0.1,
+                                                                        "range": [
+                                                                          0.001,
+                                                                          1
+                                                                        ],
+                                                                        "value": 0.1
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "value": {
+                                                                        "id": 4967097680,
+                                                                        "name": "Learn : Random Forest",
+                                                                        "description": "Step description...",
+                                                                        "configuration": {
+                                                                          "max_depth": {
+                                                                            "description": "Max depth of each tree",
+                                                                            "default": 15,
+                                                                            "range": [
+                                                                              1,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 15
+                                                                          },
+                                                                          "n_estimators": {
+                                                                            "description": "Number of threes",
+                                                                            "default": 100,
+                                                                            "range": [
+                                                                              1,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 100
+                                                                          },
+                                                                          "random_state": {
+                                                                            "description": "random_state",
+                                                                            "default": 42,
+                                                                            "value": 42
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "value": {
+                                                                    "id": 4967099984,
+                                                                    "name": "Wrap : Genetic GridSearch",
+                                                                    "description": "Step description...",
+                                                                    "configuration": {
+                                                                      "initial_modificator": {
+                                                                        "description": "Maximum multiplier of default value to generate the first generation of steps",
+                                                                        "default": 5,
+                                                                        "value": 5
+                                                                      },
+                                                                      "nb_generations": {
+                                                                        "description": "Number of generations to create, train and test",
+                                                                        "default": 10,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 10
+                                                                      },
+                                                                      "nb_estimators": {
+                                                                        "description": "Number of Steps by generations",
+                                                                        "default": 30,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 30
+                                                                      },
+                                                                      "mutation_power": {
+                                                                        "description": "Maximum multiplier of current value when mutating",
+                                                                        "default": 0.1,
+                                                                        "range": [
+                                                                          0.001,
+                                                                          1
+                                                                        ],
+                                                                        "value": 0.1
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "value": {
+                                                                        "id": 4967099152,
+                                                                        "name": "Learn : KNN",
+                                                                        "description": "Step description...",
+                                                                        "configuration": {
+                                                                          "metric": {
+                                                                            "description": "Can be minkowski or manhattan",
+                                                                            "default": "minkowski",
+                                                                            "categorical": [
+                                                                              "minkowski",
+                                                                              "manhattan"
+                                                                            ],
+                                                                            "value": "minkowski"
+                                                                          },
+                                                                          "n_neighbors": {
+                                                                            "description": "Number of neighbors",
+                                                                            "default": 5,
+                                                                            "range": [
+                                                                              1,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 5
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "value": {
+                                                                    "id": 4967101392,
+                                                                    "name": "Wrap : Genetic GridSearch",
+                                                                    "description": "Step description...",
+                                                                    "configuration": {
+                                                                      "initial_modificator": {
+                                                                        "description": "Maximum multiplier of default value to generate the first generation of steps",
+                                                                        "default": 5,
+                                                                        "value": 5
+                                                                      },
+                                                                      "nb_generations": {
+                                                                        "description": "Number of generations to create, train and test",
+                                                                        "default": 10,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 10
+                                                                      },
+                                                                      "nb_estimators": {
+                                                                        "description": "Number of Steps by generations",
+                                                                        "default": 30,
+                                                                        "range": [
+                                                                          5,
+                                                                          "Infinity"
+                                                                        ],
+                                                                        "value": 30
+                                                                      },
+                                                                      "mutation_power": {
+                                                                        "description": "Maximum multiplier of current value when mutating",
+                                                                        "default": 0.1,
+                                                                        "range": [
+                                                                          0.001,
+                                                                          1
+                                                                        ],
+                                                                        "value": 0.1
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "children": [
+                                                                    {
+                                                                      "value": {
+                                                                        "id": 4967092496,
+                                                                        "name": "Learn : XGBoost",
+                                                                        "description": "Step description...",
+                                                                        "configuration": {
+                                                                          "max_depth": {
+                                                                            "description": "Max depth of each tree",
+                                                                            "default": 15,
+                                                                            "range": [
+                                                                              1,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 15
+                                                                          },
+                                                                          "random_state": {
+                                                                            "description": "random_state",
+                                                                            "default": 42,
+                                                                            "value": 42
+                                                                          },
+                                                                          "learning_rate": {
+                                                                            "description": "Learning rate",
+                                                                            "default": 1.0,
+                                                                            "range": [
+                                                                              1e-9,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 1.0
+                                                                          },
+                                                                          "n_estimators": {
+                                                                            "description": "Number of estimators",
+                                                                            "default": 100,
+                                                                            "range": [
+                                                                              1,
+                                                                              "Infinity"
+                                                                            ],
+                                                                            "value": 100
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
                                             }
                                           ]
                                         }
                                       ]
                                     }
                                   ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "value": {
-                "id": 4966461264,
-                "name": "MetaStep",
-                "description": "Step description...",
-                "configuration": {}
-              },
-              "children": [
-                {
-                  "value": {
-                    "id": 4975500048,
-                    "name": "MetaStep",
-                    "description": "Step description...",
-                    "configuration": {}
-                  },
-                  "children": [
-                    {
-                      "value": {
-                        "id": 4975500240,
-                        "name": "Min Max Scaler",
-                        "description": "Step description...",
-                        "configuration": {}
-                      },
-                      "children": [
-                        {
-                          "value": {
-                            "id": 4971003280,
-                            "name": "Random Over Sampling",
-                            "description": "Step description...",
-                            "configuration": {}
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4971003280,
-                                "name": "Random Over Sampling",
-                                "description": "Step description...",
-                                "configuration": {}
-                              },
-                              "children": []
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "value": {
-                        "id": 4975300304,
-                        "name": "MetaExplorerStep",
-                        "description": "Step description...",
-                        "configuration": {}
-                      },
-                      "children": [
-                        {
-                          "value": {
-                            "id": 4975500432,
-                            "name": "Wrap : Genetic GridSearch",
-                            "description": "Step description...",
-                            "configuration": {
-                              "initial_modificator": {
-                                "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                "default": 5,
-                                "value": 5
-                              },
-                              "nb_generations": {
-                                "description": "Number of generations to create, train and test",
-                                "default": 10,
-                                "range": [5, "Infinity"],
-                                "value": 10
-                              },
-                              "nb_estimators": {
-                                "description": "Number of Steps by generations",
-                                "default": 30,
-                                "range": [5, "Infinity"],
-                                "value": 30
-                              },
-                              "mutation_power": {
-                                "description": "Maximum multiplier of current value when mutating",
-                                "default": 0.1,
-                                "range": [0.001, 1],
-                                "value": 0.1
-                              }
-                            }
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975500304,
-                                "name": "Learn : Gaussian NB",
-                                "description": "Step description...",
-                                "configuration": {}
-                              },
-                              "children": []
-                            }
-                          ]
-                        },
-                        {
-                          "value": {
-                            "id": 4975501200,
-                            "name": "Wrap : Genetic GridSearch",
-                            "description": "Step description...",
-                            "configuration": {
-                              "initial_modificator": {
-                                "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                "default": 5,
-                                "value": 5
-                              },
-                              "nb_generations": {
-                                "description": "Number of generations to create, train and test",
-                                "default": 10,
-                                "range": [5, "Infinity"],
-                                "value": 10
-                              },
-                              "nb_estimators": {
-                                "description": "Number of Steps by generations",
-                                "default": 30,
-                                "range": [5, "Infinity"],
-                                "value": 30
-                              },
-                              "mutation_power": {
-                                "description": "Maximum multiplier of current value when mutating",
-                                "default": 0.1,
-                                "range": [0.001, 1],
-                                "value": 0.1
-                              }
-                            }
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975500688,
-                                "name": "Learn : SVM",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "kernel": {
-                                    "description": "Kernel to use in the SVM",
-                                    "default": "rbf",
-                                    "categorical": [
-                                      "linear",
-                                      "poly",
-                                      "rbf",
-                                      "sigmoid"
-                                    ],
-                                    "value": "rbf"
-                                  },
-                                  "random_state": {
-                                    "description": "random_state",
-                                    "default": 42,
-                                    "value": 42
-                                  },
-                                  "probability": {
-                                    "description": "If true, the output will be a probability. If false, it will be Binary",
-                                    "default": false,
-                                    "value": false
-                                  },
-                                  "class_weight": {
-                                    "description": "Can be set on \"balenced\" to improve results on unbalenced data",
-                                    "default": null,
-                                    "categorical": [null, "balanced"],
-                                    "value": null
-                                  }
-                                }
-                              },
-                              "children": []
-                            }
-                          ]
-                        },
-                        {
-                          "value": {
-                            "id": 4975502864,
-                            "name": "Wrap : Genetic GridSearch",
-                            "description": "Step description...",
-                            "configuration": {
-                              "initial_modificator": {
-                                "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                "default": 5,
-                                "value": 5
-                              },
-                              "nb_generations": {
-                                "description": "Number of generations to create, train and test",
-                                "default": 10,
-                                "range": [5, "Infinity"],
-                                "value": 10
-                              },
-                              "nb_estimators": {
-                                "description": "Number of Steps by generations",
-                                "default": 30,
-                                "range": [5, "Infinity"],
-                                "value": 30
-                              },
-                              "mutation_power": {
-                                "description": "Maximum multiplier of current value when mutating",
-                                "default": 0.1,
-                                "range": [0.001, 1],
-                                "value": 0.1
-                              }
-                            }
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975501840,
-                                "name": "Learn : XGBoost",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "max_depth": {
-                                    "description": "Max depth of each tree",
-                                    "default": 15,
-                                    "range": [1, "Infinity"],
-                                    "value": 15
-                                  },
-                                  "random_state": {
-                                    "description": "random_state",
-                                    "default": 42,
-                                    "value": 42
-                                  },
-                                  "learning_rate": {
-                                    "description": "Learning rate",
-                                    "default": 1.0,
-                                    "range": [1e-9, "Infinity"],
-                                    "value": 1.0
-                                  },
-                                  "n_estimators": {
-                                    "description": "Number of estimators",
-                                    "default": 100,
-                                    "range": [1, "Infinity"],
-                                    "value": 100
-                                  }
-                                }
-                              },
-                              "children": []
-                            }
-                          ]
-                        },
-                        {
-                          "value": {
-                            "id": 4975504208,
-                            "name": "Wrap : Genetic GridSearch",
-                            "description": "Step description...",
-                            "configuration": {
-                              "initial_modificator": {
-                                "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                "default": 5,
-                                "value": 5
-                              },
-                              "nb_generations": {
-                                "description": "Number of generations to create, train and test",
-                                "default": 10,
-                                "range": [5, "Infinity"],
-                                "value": 10
-                              },
-                              "nb_estimators": {
-                                "description": "Number of Steps by generations",
-                                "default": 30,
-                                "range": [5, "Infinity"],
-                                "value": 30
-                              },
-                              "mutation_power": {
-                                "description": "Maximum multiplier of current value when mutating",
-                                "default": 0.1,
-                                "range": [0.001, 1],
-                                "value": 0.1
-                              }
-                            }
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975503504,
-                                "name": "Learn : Logistic regression",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "max_iterations": {
-                                    "description": "Maximum number of iterations",
-                                    "default": 1000,
-                                    "range": [1, "Infinity"],
-                                    "value": 1000
-                                  },
-                                  "random_state": {
-                                    "description": "random_state",
-                                    "default": 42,
-                                    "value": 42
-                                  }
-                                }
-                              },
-                              "children": []
-                            }
-                          ]
-                        },
-                        {
-                          "value": {
-                            "id": 4975505744,
-                            "name": "Wrap : Genetic GridSearch",
-                            "description": "Step description...",
-                            "configuration": {
-                              "initial_modificator": {
-                                "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                "default": 5,
-                                "value": 5
-                              },
-                              "nb_generations": {
-                                "description": "Number of generations to create, train and test",
-                                "default": 10,
-                                "range": [5, "Infinity"],
-                                "value": 10
-                              },
-                              "nb_estimators": {
-                                "description": "Number of Steps by generations",
-                                "default": 30,
-                                "range": [5, "Infinity"],
-                                "value": 30
-                              },
-                              "mutation_power": {
-                                "description": "Maximum multiplier of current value when mutating",
-                                "default": 0.1,
-                                "range": [0.001, 1],
-                                "value": 0.1
-                              }
-                            }
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975504848,
-                                "name": "Learn : Random Forest",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "max_depth": {
-                                    "description": "Max depth of each tree",
-                                    "default": 15,
-                                    "range": [1, "Infinity"],
-                                    "value": 15
-                                  },
-                                  "n_estimators": {
-                                    "description": "Number of threes",
-                                    "default": 100,
-                                    "range": [1, "Infinity"],
-                                    "value": 100
-                                  },
-                                  "random_state": {
-                                    "description": "random_state",
-                                    "default": 42,
-                                    "value": 42
-                                  }
-                                }
-                              },
-                              "children": []
-                            }
-                          ]
-                        },
-                        {
-                          "value": {
-                            "id": 4975507088,
-                            "name": "Wrap : Genetic GridSearch",
-                            "description": "Step description...",
-                            "configuration": {
-                              "initial_modificator": {
-                                "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                "default": 5,
-                                "value": 5
-                              },
-                              "nb_generations": {
-                                "description": "Number of generations to create, train and test",
-                                "default": 10,
-                                "range": [5, "Infinity"],
-                                "value": 10
-                              },
-                              "nb_estimators": {
-                                "description": "Number of Steps by generations",
-                                "default": 30,
-                                "range": [5, "Infinity"],
-                                "value": 30
-                              },
-                              "mutation_power": {
-                                "description": "Maximum multiplier of current value when mutating",
-                                "default": 0.1,
-                                "range": [0.001, 1],
-                                "value": 0.1
-                              }
-                            }
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975506384,
-                                "name": "Learn : KNN",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "metric": {
-                                    "description": "Can be minkowski or manhattan",
-                                    "default": "minkowski",
-                                    "categorical": ["minkowski", "manhattan"],
-                                    "value": "minkowski"
-                                  },
-                                  "n_neighbors": {
-                                    "description": "Number of neighbors",
-                                    "default": 5,
-                                    "range": [1, "Infinity"],
-                                    "value": 5
-                                  }
-                                }
-                              },
-                              "children": []
-                            }
-                          ]
-                        },
-                        {
-                          "value": {
-                            "id": 4975300304,
-                            "name": "MetaExplorerStep",
-                            "description": "Step description...",
-                            "configuration": {}
-                          },
-                          "children": [
-                            {
-                              "value": {
-                                "id": 4975500432,
-                                "name": "Wrap : Genetic GridSearch",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "initial_modificator": {
-                                    "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                    "default": 5,
-                                    "value": 5
-                                  },
-                                  "nb_generations": {
-                                    "description": "Number of generations to create, train and test",
-                                    "default": 10,
-                                    "range": [5, "Infinity"],
-                                    "value": 10
-                                  },
-                                  "nb_estimators": {
-                                    "description": "Number of Steps by generations",
-                                    "default": 30,
-                                    "range": [5, "Infinity"],
-                                    "value": 30
-                                  },
-                                  "mutation_power": {
-                                    "description": "Maximum multiplier of current value when mutating",
-                                    "default": 0.1,
-                                    "range": [0.001, 1],
-                                    "value": 0.1
-                                  }
-                                }
-                              },
-                              "children": [
-                                {
-                                  "value": {
-                                    "id": 4975500304,
-                                    "name": "Learn : Gaussian NB",
-                                    "description": "Step description...",
-                                    "configuration": {}
-                                  },
-                                  "children": []
-                                }
-                              ]
-                            },
-                            {
-                              "value": {
-                                "id": 4975501200,
-                                "name": "Wrap : Genetic GridSearch",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "initial_modificator": {
-                                    "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                    "default": 5,
-                                    "value": 5
-                                  },
-                                  "nb_generations": {
-                                    "description": "Number of generations to create, train and test",
-                                    "default": 10,
-                                    "range": [5, "Infinity"],
-                                    "value": 10
-                                  },
-                                  "nb_estimators": {
-                                    "description": "Number of Steps by generations",
-                                    "default": 30,
-                                    "range": [5, "Infinity"],
-                                    "value": 30
-                                  },
-                                  "mutation_power": {
-                                    "description": "Maximum multiplier of current value when mutating",
-                                    "default": 0.1,
-                                    "range": [0.001, 1],
-                                    "value": 0.1
-                                  }
-                                }
-                              },
-                              "children": [
-                                {
-                                  "value": {
-                                    "id": 4975500688,
-                                    "name": "Learn : SVM",
-                                    "description": "Step description...",
-                                    "configuration": {
-                                      "kernel": {
-                                        "description": "Kernel to use in the SVM",
-                                        "default": "rbf",
-                                        "categorical": [
-                                          "linear",
-                                          "poly",
-                                          "rbf",
-                                          "sigmoid"
-                                        ],
-                                        "value": "rbf"
-                                      },
-                                      "random_state": {
-                                        "description": "random_state",
-                                        "default": 42,
-                                        "value": 42
-                                      },
-                                      "probability": {
-                                        "description": "If true, the output will be a probability. If false, it will be Binary",
-                                        "default": false,
-                                        "value": false
-                                      },
-                                      "class_weight": {
-                                        "description": "Can be set on \"balenced\" to improve results on unbalenced data",
-                                        "default": null,
-                                        "categorical": [null, "balanced"],
-                                        "value": null
-                                      }
-                                    }
-                                  },
-                                  "children": []
-                                }
-                              ]
-                            },
-                            {
-                              "value": {
-                                "id": 4975502864,
-                                "name": "Wrap : Genetic GridSearch",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "initial_modificator": {
-                                    "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                    "default": 5,
-                                    "value": 5
-                                  },
-                                  "nb_generations": {
-                                    "description": "Number of generations to create, train and test",
-                                    "default": 10,
-                                    "range": [5, "Infinity"],
-                                    "value": 10
-                                  },
-                                  "nb_estimators": {
-                                    "description": "Number of Steps by generations",
-                                    "default": 30,
-                                    "range": [5, "Infinity"],
-                                    "value": 30
-                                  },
-                                  "mutation_power": {
-                                    "description": "Maximum multiplier of current value when mutating",
-                                    "default": 0.1,
-                                    "range": [0.001, 1],
-                                    "value": 0.1
-                                  }
-                                }
-                              },
-                              "children": [
-                                {
-                                  "value": {
-                                    "id": 4975501840,
-                                    "name": "Learn : XGBoost",
-                                    "description": "Step description...",
-                                    "configuration": {
-                                      "max_depth": {
-                                        "description": "Max depth of each tree",
-                                        "default": 15,
-                                        "range": [1, "Infinity"],
-                                        "value": 15
-                                      },
-                                      "random_state": {
-                                        "description": "random_state",
-                                        "default": 42,
-                                        "value": 42
-                                      },
-                                      "learning_rate": {
-                                        "description": "Learning rate",
-                                        "default": 1.0,
-                                        "range": [1e-9, "Infinity"],
-                                        "value": 1.0
-                                      },
-                                      "n_estimators": {
-                                        "description": "Number of estimators",
-                                        "default": 100,
-                                        "range": [1, "Infinity"],
-                                        "value": 100
-                                      }
-                                    }
-                                  },
-                                  "children": []
-                                }
-                              ]
-                            },
-                            {
-                              "value": {
-                                "id": 4975504208,
-                                "name": "Wrap : Genetic GridSearch",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "initial_modificator": {
-                                    "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                    "default": 5,
-                                    "value": 5
-                                  },
-                                  "nb_generations": {
-                                    "description": "Number of generations to create, train and test",
-                                    "default": 10,
-                                    "range": [5, "Infinity"],
-                                    "value": 10
-                                  },
-                                  "nb_estimators": {
-                                    "description": "Number of Steps by generations",
-                                    "default": 30,
-                                    "range": [5, "Infinity"],
-                                    "value": 30
-                                  },
-                                  "mutation_power": {
-                                    "description": "Maximum multiplier of current value when mutating",
-                                    "default": 0.1,
-                                    "range": [0.001, 1],
-                                    "value": 0.1
-                                  }
-                                }
-                              },
-                              "children": [
-                                {
-                                  "value": {
-                                    "id": 4975503504,
-                                    "name": "Learn : Logistic regression",
-                                    "description": "Step description...",
-                                    "configuration": {
-                                      "max_iterations": {
-                                        "description": "Maximum number of iterations",
-                                        "default": 1000,
-                                        "range": [1, "Infinity"],
-                                        "value": 1000
-                                      },
-                                      "random_state": {
-                                        "description": "random_state",
-                                        "default": 42,
-                                        "value": 42
-                                      }
-                                    }
-                                  },
-                                  "children": []
-                                }
-                              ]
-                            },
-                            {
-                              "value": {
-                                "id": 4975505744,
-                                "name": "Wrap : Genetic GridSearch",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "initial_modificator": {
-                                    "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                    "default": 5,
-                                    "value": 5
-                                  },
-                                  "nb_generations": {
-                                    "description": "Number of generations to create, train and test",
-                                    "default": 10,
-                                    "range": [5, "Infinity"],
-                                    "value": 10
-                                  },
-                                  "nb_estimators": {
-                                    "description": "Number of Steps by generations",
-                                    "default": 30,
-                                    "range": [5, "Infinity"],
-                                    "value": 30
-                                  },
-                                  "mutation_power": {
-                                    "description": "Maximum multiplier of current value when mutating",
-                                    "default": 0.1,
-                                    "range": [0.001, 1],
-                                    "value": 0.1
-                                  }
-                                }
-                              },
-                              "children": [
-                                {
-                                  "value": {
-                                    "id": 4975504848,
-                                    "name": "Learn : Random Forest",
-                                    "description": "Step description...",
-                                    "configuration": {
-                                      "max_depth": {
-                                        "description": "Max depth of each tree",
-                                        "default": 15,
-                                        "range": [1, "Infinity"],
-                                        "value": 15
-                                      },
-                                      "n_estimators": {
-                                        "description": "Number of threes",
-                                        "default": 100,
-                                        "range": [1, "Infinity"],
-                                        "value": 100
-                                      },
-                                      "random_state": {
-                                        "description": "random_state",
-                                        "default": 42,
-                                        "value": 42
-                                      }
-                                    }
-                                  },
-                                  "children": []
-                                }
-                              ]
-                            },
-                            {
-                              "value": {
-                                "id": 4975507088,
-                                "name": "Wrap : Genetic GridSearch",
-                                "description": "Step description...",
-                                "configuration": {
-                                  "initial_modificator": {
-                                    "description": "Maximum multiplier of default value to generate the first generation of steps",
-                                    "default": 5,
-                                    "value": 5
-                                  },
-                                  "nb_generations": {
-                                    "description": "Number of generations to create, train and test",
-                                    "default": 10,
-                                    "range": [5, "Infinity"],
-                                    "value": 10
-                                  },
-                                  "nb_estimators": {
-                                    "description": "Number of Steps by generations",
-                                    "default": 30,
-                                    "range": [5, "Infinity"],
-                                    "value": 30
-                                  },
-                                  "mutation_power": {
-                                    "description": "Maximum multiplier of current value when mutating",
-                                    "default": 0.1,
-                                    "range": [0.001, 1],
-                                    "value": 0.1
-                                  }
-                                }
-                              },
-                              "children": [
-                                {
-                                  "value": {
-                                    "id": 4975506384,
-                                    "name": "Learn : KNN",
-                                    "description": "Step description...",
-                                    "configuration": {
-                                      "metric": {
-                                        "description": "Can be minkowski or manhattan",
-                                        "default": "minkowski",
-                                        "categorical": [
-                                          "minkowski",
-                                          "manhattan"
-                                        ],
-                                        "value": "minkowski"
-                                      },
-                                      "n_neighbors": {
-                                        "description": "Number of neighbors",
-                                        "default": 5,
-                                        "range": [1, "Infinity"],
-                                        "value": 5
-                                      }
-                                    }
-                                  },
-                                  "children": []
                                 }
                               ]
                             }
