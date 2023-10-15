@@ -15,7 +15,7 @@
     "format": "prettier --write src"
   },
   "dependencies": {
-    "@ssthouse/vue3-tree-chart": "^0.2.6",
+    "@vue-flow/core": "^1.23.0",
     "axios": "^1.5.1",
     "pinia": "^2.1.6",
     "primeicons": "^6.0.1",
