@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import { useRouter } from 'vue-router'
-import VueTree from "@ssthouse/vue3-tree-chart";
-import "@ssthouse/vue3-tree-chart/dist/vue3-tree-chart.css";
 import json from '@/pipeline.json';
 import axios from "axios";
 
