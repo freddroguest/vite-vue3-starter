@@ -15,19 +15,35 @@ import 'primeicons/primeicons.css';
 import 'primevue/resources/primevue.min.css';
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import OverlayPanel from "primevue/overlaypanel";
+import ScrollPanel from "primevue/scrollpanel";
+import ToastService from "primevue/toastservice";
+import FileUpload from "primevue/fileupload";
 import InputText from "primevue/inputtext";
+import Textarea from "primevue/textarea";
+import Card from "primevue/card";
+import Toast from 'primevue/toast';
 import axios from "axios";
 import VueAxios from "vue-axios";
+import Particles from "vue3-particles";
+
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(VueAxios, axios)
 app.use(PrimeVue, { styled: true })
+app.use(ToastService)
+app.use(Particles);
+
 app.component("DataTable", DataTable)
 app.component("Column", Column)
 app.component("Button", Button)
+app.component("Toast", Toast)
 app.component("OverlayPanel", OverlayPanel)
+app.component("ScrollPanel", ScrollPanel)
+app.component("FileUpload", FileUpload)
+app.component("Textarea", Textarea)
+app.component("Card", Card)
 app.component("InputText", InputText)
 app.use(router)
 
