@@ -15,6 +15,8 @@ import 'primeicons/primeicons.css';
 import 'primevue/resources/primevue.min.css';
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import OverlayPanel from "primevue/overlaypanel";
+import Sidebar from 'primevue/sidebar';
+import Avatar from 'primevue/avatar';
 import InputText from "primevue/inputtext";
 import axios from "axios";
 import VueAxios from "vue-axios";
@@ -28,6 +30,8 @@ app.component("DataTable", DataTable)
 app.component("Column", Column)
 app.component("Button", Button)
 app.component("OverlayPanel", OverlayPanel)
+app.component('Sidebar', Sidebar)
+app.component('Avatar', Avatar)
 app.component("InputText", InputText)
 app.use(router)
 
