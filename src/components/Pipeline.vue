@@ -27,11 +27,26 @@ const parsePipeline = (pipeline:any, parentId:any=undefined, depth:number=0, lev
     // Total number of children which do not have children. Used to compute y position
     let totalNumberOfChildLeaf:number = 0;
 
-  // Node
+    // Recursive to create children
+    for(const child of pipeline.children) {
+        let childElements:Array<any> = parsePipeline(child, pipeline.value.id, depth+1, (totalNumberOfChildLeaf+level));
+        console.log(childElements)
+        totalNumberOfChildLeaf += childElements.at(-2).totalNumberOfChildLeaf;
+
+        elements = elements.concat(childElements);
+    }
+
+    // If no child, count himself
+    totalNumberOfChildLeaf = Math.max(totalNumberOfChildLeaf, 1)
+
+    // Node
     elements.push({
         id: String(pipeline.value.id),
         label: pipeline.value.name, 
-        position: { x: X_GAP*depth, y: 0 },
+        position: { 
+            x: X_GAP*depth, 
+            y: ((totalNumberOfChildLeaf/2+0.5)+level)*Y_GAP+Y_GAP
+        },
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         data: pipeline.value,
@@ -40,10 +55,10 @@ const parsePipeline = (pipeline:any, parentId:any=undefined, depth:number=0, lev
             changeActiveNode(elem.event, elem.node)
             }
         },
-        totalNumberOfChildLeaf: 0
+        totalNumberOfChildLeaf: totalNumberOfChildLeaf
     });
 
-  // Edge
+    // Edge
     if(parentId) {
         elements.push({
             id: parentId + "_" + pipeline.value.id,
@@ -52,18 +67,7 @@ const parsePipeline = (pipeline:any, parentId:any=undefined, depth:number=0, lev
             markerEnd: MarkerType.Arrow
         });
     }
-
-  // Children
-    for(const child of pipeline.children) {
-        let childElements:Array<any> = parsePipeline(child, pipeline.value.id, depth+1, (totalNumberOfChildLeaf+level));
-        totalNumberOfChildLeaf += childElements[0].totalNumberOfChildLeaf;
-
-        elements = elements.concat(childElements);
-    }
     
-    elements[0].totalNumberOfChildLeaf = Math.max(totalNumberOfChildLeaf, 1);
-    elements[0].position.y = ((elements[0].totalNumberOfChildLeaf/2+0.5)+level)*Y_GAP+Y_GAP;
-
     return elements;
 }
 
