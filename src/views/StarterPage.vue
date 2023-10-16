@@ -102,12 +102,12 @@ const processings = ref([
   }
 
 .new-project-form {
-  margin-top: calc(50vh - 50px);
+  padding-top: calc(50vh - 50px);
   transition: .5s;
 }
 
 .new-project-form.with-selected-file {
-  margin-top: 30vh;
+  padding-top: 30vh;
   padding-bottom: 40vh;
 }
 

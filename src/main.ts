@@ -18,6 +18,8 @@ import OverlayPanel from "primevue/overlaypanel";
 import ScrollPanel from "primevue/scrollpanel";
 import ToastService from "primevue/toastservice";
 import FileUpload from "primevue/fileupload";
+import Sidebar from 'primevue/sidebar';
+import Avatar from 'primevue/avatar';
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
 import Card from "primevue/card";
@@ -44,6 +46,8 @@ app.component("ScrollPanel", ScrollPanel)
 app.component("FileUpload", FileUpload)
 app.component("Textarea", Textarea)
 app.component("Card", Card)
+app.component('Sidebar', Sidebar)
+app.component('Avatar', Avatar)
 app.component("InputText", InputText)
 app.use(router)
 
