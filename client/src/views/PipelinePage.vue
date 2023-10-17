@@ -4,7 +4,6 @@ import {onMounted, ref} from "vue";
 import json from '@/pipeline-small.json';
 import PipeLine from '../components/PipeLine.vue'
 
-
 // import axios from "axios";
 // const loading = ref(false);
 // const sendDataset = async () => {
@@ -33,7 +32,7 @@ import PipeLine from '../components/PipeLine.vue'
 <style scoped>
   .pipeline_container {
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     padding: 30px;
     box-sizing: border-box;
   }

@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
 
+const emit = defineEmits(['save_change'])
+
 // VueFlow
 import { VueFlow, MarkerType, Position  } from '@vue-flow/core'
 import '@vue-flow/core/dist/style.css';
 import '@vue-flow/core/dist/theme-default.css';
 
 const props = defineProps(['json_pipeline'])
+
+
+/**************************/
+/*** GENERATE PIPELINE ***/
+/*************************/
 
 // Recursive function
 // Parse JSON from Python Package to Array of elements for VueFlow
@@ -30,7 +37,6 @@ const parsePipeline = (pipeline:any, parentId:any=undefined, depth:number=0, lev
     // Recursive to create children
     for(const child of pipeline.children) {
         let childElements:Array<any> = parsePipeline(child, pipeline.value.id, depth+1, (totalNumberOfChildLeaf+level));
-        console.log(childElements)
         totalNumberOfChildLeaf += childElements.at(-2).totalNumberOfChildLeaf;
 
         elements = elements.concat(childElements);
@@ -52,7 +58,7 @@ const parsePipeline = (pipeline:any, parentId:any=undefined, depth:number=0, lev
         data: pipeline.value,
         events: {
             click: (elem) => {
-            changeActiveNode(elem.event, elem.node)
+                changeActiveNode(elem.event, elem.node)
             }
         },
         totalNumberOfChildLeaf: totalNumberOfChildLeaf
@@ -72,36 +78,53 @@ const parsePipeline = (pipeline:any, parentId:any=undefined, depth:number=0, lev
 }
 
 const elements = ref(parsePipeline(props.json_pipeline)) // Elements from VueFlow (Edges & Nodes)
+
+
+/***********************/
+/*** CONFIGURE NODES ***/
+/***********************/
+
 const activeNode = ref(); // Last clicked Node
 const overlayPanel = ref(); // Overlay from describe & configure a node
-
-
+const lastSavedConfig = ref({})
 // Call on click on a node, change active node & open overlayPanel
 const changeActiveNode = (event: any, node: any) => {
     activeNode.value = node;
+    lastSavedConfig.value = JSON.parse(JSON.stringify(activeNode.value.data.configuration || {}))
     overlayPanel.value.toggle(event);
+}
+
+const saveConfiguration = () => {
+    lastSavedConfig.value = JSON.parse(JSON.stringify(activeNode.value.data.configuration || {}))
+    emit('save_change')
+}
+
+const restoreConfiguration = () => {
+    activeNode.value.data.configuration = JSON.parse(JSON.stringify(lastSavedConfig.value || {}))
 }
 
 </script>
 
 <template>
-    <VueFlow v-model="elements" />
-    
-    <OverlayPanel ref="overlayPanel">
-        <div class="flex flex-col gap-2">
-            <!-- Description -->
-            <span>{{ activeNode.data.description }}</span>
+    <div class="w-full h-full">
+        <VueFlow v-model="elements" />
+        
+        <OverlayPanel ref="overlayPanel" @hide="restoreConfiguration">
+            <div class="flex flex-col gap-2">
+                <!-- Description -->
+                <span>{{ activeNode.data.description }}</span>
 
-            <!-- Configuration -->
-            <div v-if="activeNode.data.configuration !== undefined">
-                <div v-for="(configurationKey, index) in Object.keys(activeNode.data.configuration)" :key="index">
-                    <span>{{ configurationKey }}</span>
-                    <InputText v-model="activeNode.data['configuration'][configurationKey].value" />
+                <!-- Configuration -->
+                <div v-if="activeNode.data.configuration">
+                    <div v-for="(configurationKey, index) in Object.keys(activeNode.data.configuration)" :key="index">
+                        <span>{{ configurationKey }}</span>
+                        <InputText v-model="activeNode.data['configuration'][configurationKey].value" />
+                    </div>
+                    <Button label="Enregistrer" class="mt-2 w-full" @click="saveConfiguration" />
                 </div>
-                <Button label="Enregistrer" class="mt-2 w-full" :loading="loading" @click="sendDataset()" />
             </div>
-        </div>
-    </OverlayPanel>
+        </OverlayPanel>
+    </div>
 </template>
 
 <style scoped>

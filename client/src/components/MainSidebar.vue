@@ -1,41 +1,36 @@
 <script setup lang="ts">
     import { ref, defineProps, onMounted } from 'vue'
-    import MenuItem from './MenuItem.vue'
+    import { useRouter } from 'vue-router'
+    import MenuProjectItem from './MenuProjectItem.vue'
     import Project from '../types/Project.ts'
 
     const sidebarVisible = ref(false);
 
-    const projectToItem = (project:Project) => {
-        return {
-            label: project.title,
-            icon: 'pi pi-chevron-right',
-            path: `/projects/${project.id}`
-        }
-    }
-
-
+    const router = useRouter()
 
     const my_projects = ref([]);
 
     onMounted(async () => {
-        const projects = await Project.getAll()
-        my_projects.value = Array.from(projects.map(projectToItem))
-        
+        my_projects.value = await Project.getAll()
     })
+
+    const hideSidebar = () => {
+        sidebarVisible.value = false
+    }
 
 </script>
 
 <template>
     <div class="card flex justify-content-center">
-        <Sidebar v-model:visible="sidebarVisible">
+        <Sidebar v-model:visible="sidebarVisible" @click="hideSidebar()">
             <template #header>
                 <span class="text-3xl font-bold">AutoML</span>
             </template>
-            <Button label="New project" icon="pi pi-plus" class="w-full" />
+            <Button label="New project" icon="pi pi-plus" class="w-full" @click="router.push({name: 'home'})"/>
             <div class="mt-6">
                 <div class="text-2xl font-semibold mb-2">My projects</div>
-                <div v-for="(item, index) in my_projects" :key="index">
-                    <MenuItem :item="item" />
+                <div v-for="(project, index) in my_projects" :key="index">
+                    <MenuProjectItem :project="project" />
                 </div>
             </div>
 
