@@ -10,7 +10,7 @@
         </template>
         <template #title> 
             <div class="h-16">
-            {{ props.item.name }}
+            {{ props.item.title }}
             </div>
         </template>
         <template #content>

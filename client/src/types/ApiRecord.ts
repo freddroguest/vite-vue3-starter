@@ -1,22 +1,22 @@
 import axios from 'axios'
 import { useRouter } from 'vue-router'
-import router from '../router';
 import {app} from '@/main'; // Used to get Toast 
 
+const router = useRouter()
 export default class ApiRecord {
-    static url = 'http://127.0.0.1:3000';
-    static acceptedAttributes = []
-    static modelName = '';
-    static niceName = '';
-    static endpoint = '';
+    static url:string = 'http://127.0.0.1:3000';
+    static acceptedAttributes:Array<string> = []
+    static modelName:string = '';
+    static niceName:string = '';
+    static endpoint:string = '';
 
-    constructor(json?) {
+    constructor(json?:Object) {
         if(json) {
             this.updateAttributes(json)
         }
     }
 
-    updateAttributes(json) {
+    updateAttributes(json:Object) {
         const acceptedAttributes = this.constructor.acceptedAttributes.concat(['id'])
         for(const attribute of acceptedAttributes)
             if(Object.keys(json).includes(attribute))

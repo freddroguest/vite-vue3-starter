@@ -1,20 +1,20 @@
-import ApiRecord from './ApiRecord.ts'
+import ApiRecord from './ApiRecord'
 
 export default class Project extends ApiRecord {
-    static endpoint = 'projects';
-    static modelName = 'project';
-    static niceName = 'Project';
-    static acceptedAttributes = ['title', 'description', 'pipeline_type_id', 'pipeline']
+    static endpoint:string = 'projects';
+    static modelName:string = 'project';
+    static niceName:string = 'Project';
+    static acceptedAttributes:Array<string> = ['title', 'description', 'pipeline_type_id', 'pipeline'];
 
     constructor();
-    constructor(title, description, pipeline_type_id, pipeline);
-    constructor(json);
+    constructor(title:string, description:string, pipeline_type_id:number, pipeline:Object);
+    constructor(json:Object);
     constructor(...args: Array<any>) { // TODO Il y a vraiment pas plus propre que ça ?!
 
         if (args.length == 0) {
             super()
-            this.title = undefined
-            this.description = undefined
+            this.title = ""
+            this.description = ""
             this.pipeline_type_id = undefined
             this.pipeline = undefined
         }
