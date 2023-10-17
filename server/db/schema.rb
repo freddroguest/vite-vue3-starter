@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_17_102627) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.bigint "pipeline_type_id", null: false
+    t.bigint "pipeline_type_id"
     t.json "pipeline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
