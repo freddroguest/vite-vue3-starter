@@ -1,6 +1,6 @@
 import ApiRecord from './ApiRecord.ts'
 
-export default class PipelineType extends ApiRecord {
+export default class Project extends ApiRecord {
     static endpoint = 'projects';
     static model_name = 'project';
     static accepted_attributes = ['title', 'description', 'pipeline_type_id', 'pipeline_json']

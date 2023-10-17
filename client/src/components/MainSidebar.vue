@@ -1,31 +1,27 @@
 <script setup lang="ts">
-    import { ref, defineProps } from 'vue'
+    import { ref, defineProps, onMounted } from 'vue'
     import MenuItem from './MenuItem.vue'
+    import Project from '../types/Project.ts'
 
     const sidebarVisible = ref(false);
 
-    const my_projects = ref([
-        {
-            label: 'ConcilIA',
+    const projectToItem = (project:Project) => {
+        return {
+            label: project.title,
             icon: 'pi pi-chevron-right',
-            path: 'home'
-        },
-        {
-            label: 'Swanodeep',
-            icon: 'pi pi-chevron-right',
-            path: 'home'
-        },
-        {
-            label: 'CoagIA',
-            icon: 'pi pi-chevron-right',
-            path: 'home'
-        },
-        {
-            label: 'PasscomAct',
-            icon: 'pi pi-chevron-right',
-            path: 'home'
+            path: `/projects/${project.id}`
         }
-    ]);
+    }
+
+
+
+    const my_projects = ref([]);
+
+    onMounted(async () => {
+        const projects = await Project.getAll()
+        my_projects.value = Array.from(projects.map(projectToItem))
+        
+    })
 
 </script>
 
