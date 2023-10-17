@@ -10,4 +10,4 @@
 
 PipelineType.create title: "Classification", description: "AI classification involves employing advanced algorithms to analyze data and categorize elements based on specific characteristics."
 PipelineType.create title: "Survival analysis", description: "Survival models in AI utilize advanced algorithms to assess and predict the time until a specific event occurs, such as a patient's survival after a medical diagnosis. These models play a crucial role in medical research and personalized treatment strategies."
-
+PipelineType.create  title: "Time Series Forecasting", description: "Time series forecasting in AI involves the use of algorithms to analyze historical data and make predictions about future values based on patterns and trends within the time series data."
