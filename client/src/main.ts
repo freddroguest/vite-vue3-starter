@@ -29,7 +29,7 @@ import VueAxios from "vue-axios";
 import Particles from "vue3-particles";
 
 
-const app = createApp(App)
+export const app = createApp(App)
 
 app.use(createPinia())
 app.use(VueAxios, axios)
