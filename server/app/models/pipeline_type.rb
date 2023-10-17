@@ -1,0 +1,2 @@
+class PipelineType < ApplicationRecord
+end
