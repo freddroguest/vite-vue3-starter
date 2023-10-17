@@ -4,12 +4,15 @@ class PipelineTypesController < ApplicationController
   # GET /pipeline_types
   def index
     @pipeline_types = PipelineType.all
+    @pipeline_types = @pipeline_types.map {|prod| prod.as_json.merge({ image: prod.image_url(request.base_url) })}
+
 
     render json: @pipeline_types
   end
 
   # GET /pipeline_types/1
   def show
+    @pipeline_type = @pipeline_type.as_json.merge({ image: prod.image_url(request.base_url) })
     render json: @pipeline_type
   end
 
