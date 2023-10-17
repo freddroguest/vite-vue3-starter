@@ -1,8 +1,6 @@
 import axios from 'axios'
-import { useRouter } from 'vue-router'
 import {app} from '@/main'; // Used to get Toast 
-
-const router = useRouter()
+// import router from '../router';
 export default class ApiRecord {
     static url:string = 'http://127.0.0.1:3000';
     static acceptedAttributes:Array<string> = []
@@ -102,8 +100,10 @@ export default class ApiRecord {
         return true;
     }
 
-    show(): void {
-        router.push({name: this.constructor.modelName, params: {id: this.id}})
+    async show(): void {
+        import('../router').then((router) => {
+            router.default.push({name: this.constructor.modelName, params: {id: this.id}})
+        })
     }
 
     sendToast(message:string, severity:string='success'): void {
