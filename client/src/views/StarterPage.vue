@@ -4,6 +4,7 @@
   import CardSelector from '../components/CardSelector.vue'
   import PipelineType from '../types/PipelineType'
   import Project from '../types/Project'
+  import ApplicationName from "../components/ApplicationName.vue";
   
   import { useToast } from "primevue/usetoast";
 
@@ -41,6 +42,7 @@
 
 <template>
   <div class="w-[700px] ml-auto mr-auto new-project-form" :class="{'with-selected-file': fileIsSelected}">
+    <ApplicationName class="!mb-20" />
     <FileUpload class="w-fit !m-auto !block" mode="basic" name="demo[]" url="./upload.php" :maxFileSize="1000000" @upload="onUpload"  @select="onSelect" chooseLabel="Choose a CSV file"/>
     <div v-if="fileIsSelected">
       <div class="text-3xl  mt-12 mb-5">Choose the type of processing</div>
@@ -67,7 +69,7 @@
 
 <style scoped>
 .new-project-form {
-  padding-top: calc(50vh - 50px);
+  padding-top: calc(50vh - 170px);
   transition: .5s;
 }
 

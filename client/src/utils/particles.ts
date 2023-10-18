@@ -4,11 +4,11 @@ export const particlesJSConfig = {
             "value": 30,
             "density": {
                 "enable": true,
-                "value_area": 800
+                "value_area": 400
             }
         },
         "color": {
-            "value": "#aadae2"
+            "value": "#9AD8DE"
         },
         "shape": {
             "type": "circle",
