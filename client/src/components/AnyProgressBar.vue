@@ -28,7 +28,7 @@
 <style scoped>
 
 .any-progress-background {
-    background-color: #F0BE9D;
+    background-color: #9AD8DE;
 }
 .any-progress-background.in_error {
     background-color: #FC9297;
@@ -46,6 +46,6 @@
 
 @keyframes moving_strip {
     from {background-position: 0 0;}
-    to {background-position: 0 40px;}
+    to {background-position: 0 -40px;}
 }
 </style>

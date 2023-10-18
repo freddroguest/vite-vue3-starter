@@ -19,7 +19,7 @@
             icon: 'pi pi-times'
         },
         pending: {
-            color: "#F0BE9D",
+            color: "#9AD8DE",
             name: "Pending",
             icon: 'pi pi-stopwatch'
         },
@@ -60,6 +60,6 @@
 
     @keyframes moving_strip {
         from {background-position: 0 0;}
-        to {background-position: 0 40px;}
+        to {background-position: 0 -40px;}
     }
 </style>
