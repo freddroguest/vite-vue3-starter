@@ -68,18 +68,26 @@ const loadingTexts = [
             <div class="text-xl ml-1 mt-1">{{ project.description }}</div>
         </div>
         <div class="grid grid-cols-4 gap-4">
-            <AnyProgressBar :value="120" class="col-span-3 like-a-card">
+            <AnyProgressBar :value="80" class="col-span-3 like-a-card">
+
+                <div class="flex place-content-between">
                     <div class="progress-body">
-                        <p class="text-3xl font-bold">Baiddy is processings your data !</p>
-                        <p>It can take a while, you can leave this page and comeback later.</p>
-                        <VueTyper :text='loadingTexts' :shuffle='true' pre-erase-delay='3000' erase-style='backspace' erase-delay='35'></VueTyper>
+                        <div>
+                            <p class="text-3xl font-bold">Baiddy is processings your data !</p>
+                            <p>It can take a while, you can leave this page and comeback later.</p>
+                            <VueTyper :text='loadingTexts' :shuffle='true' pre-erase-delay='3000' erase-style='backspace' erase-delay='35'></VueTyper>
+                        </div>
                     </div>
+                    <div class="w-fit m-[0.85rem]">
+                        <Button class="!mb-2" icon="pi pi-angle-double-right" severity="secondary" size="small" />
+                        <br />
+                        <Button class="" icon="pi pi-times" severity="danger" size="small" />
+                    </div>
+                </div>
             </AnyProgressBar>
             <Card class="">
                 <template #content>
-                    <p>
-                        Lorem ipsum dolor sit amet
-                    </p>
+                    Something here
                 </template>
             </Card>
             <Card class="col-span-4">
@@ -92,24 +100,21 @@ const loadingTexts = [
                     </DataTable>
                 </template>
             </Card>
-            <Card class="col-span-2">
+            <Card class="">
+                <template #title>
+                    <p>Last processing</p>
+                </template>
                 <template #content>
-                    <p>
-                        Best result
-                    </p>
+                    Something
                 </template>
             </Card>
-            <Card class="">
-                <template #content>
-                    <p>
-                        Previous result
-                    </p>
+            <Card class="col-span-3">
+                <template #title>
+                    <p>Best processing</p>
                 </template>
-            </Card>
-            <Card class="">
                 <template #content>
                     <p>
-                        Stats & infos
+                        Something
                     </p>
                 </template>
             </Card>
