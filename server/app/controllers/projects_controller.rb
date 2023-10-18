@@ -3,14 +3,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all
+    @projects = Project.all.as_json(include: {processings: {include: :results}})
 
     render json: @projects
   end
 
   # GET /projects/1
   def show
-    render json: @project
+    render json: @project.as_json(include: {processings: {include: :results}})
   end
 
   # POST /projects
