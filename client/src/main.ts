@@ -28,6 +28,10 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import Particles from "vue3-particles";
 
+// VueTyper
+import VueTyper from 'vue3-typer'
+import "vue3-typer/dist/vue-typer.css"
+
 
 export const app = createApp(App)
 
@@ -36,6 +40,7 @@ app.use(VueAxios, axios)
 app.use(PrimeVue, { styled: true })
 app.use(ToastService)
 app.use(Particles);
+app.use(VueTyper)
 
 app.component("DataTable", DataTable)
 app.component("Column", Column)
