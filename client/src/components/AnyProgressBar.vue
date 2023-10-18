@@ -28,7 +28,7 @@
 <style scoped>
 
 .any-progress-background {
-    background-color: #F0E09D;
+    background-color: #F0BE9D;
 }
 .any-progress-background.in_error {
     background-color: #FC9297;
