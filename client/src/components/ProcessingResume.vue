@@ -2,7 +2,11 @@
     import { ref } from 'vue'
     import { dateToString, dateDiff } from '../utils/dateHelper'
     import { beautify } from '../utils/stringHelper'
-    const props = defineProps(['processing'])
+    import StatusTag from './StatusTag.vue';
+    const props = defineProps({
+        'processing': {},
+        'tag': {default: true}
+    })
     
     const bestResult = ref(props.processing?.bestResult())
 </script>
@@ -16,6 +20,7 @@
                 <p><i class="pi pi-star" /> {{ bestResult.ml_model_name }}</p>
                 <p><i class="pi pi-calculator" /><span>&nbsp;{{ beautify(bestResult.mainMetric().name) }}</span> {{ bestResult.mainMetric().value }}</p>
             </div>
+            <StatusTag v-if="props.tag" :status="props.processing?.status" class="mt-2"/>
         </div>
         <div v-else>No processing yet</div>
     </div>

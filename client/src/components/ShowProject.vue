@@ -107,7 +107,7 @@ const loadingTexts = [
                     <p>Last processing</p>
                 </template>
                 <template #content>
-                    <ProcessingResume :processing="project.processings[2]"/>
+                    <ProcessingResume :processing="project.processings[project.processings.length-1]"/>
                 </template>
             </Card>
             <Card class="col-span-3 bg-success">
@@ -115,9 +115,7 @@ const loadingTexts = [
                     <p>Best processing</p>
                 </template>
                 <template #content>
-                    <p>
-                        Something
-                    </p>
+                    <ProcessingResume :processing="project.bestProcessing()" :tag="false"/>
                 </template>
             </Card>
             <Card class="col-span-4">
