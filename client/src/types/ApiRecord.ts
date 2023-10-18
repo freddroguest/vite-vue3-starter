@@ -4,9 +4,11 @@ import {app} from '@/main'; // Used to get Toast
 export default class ApiRecord {
     static url:string = 'http://127.0.0.1:3000';
     static acceptedAttributes:Array<string> = []
+    static nestedAttributes:Object = {};
     static modelName:string = '';
     static niceName:string = '';
     static endpoint:string = '';
+    
 
     constructor(json?:Object) {
         if(json) {
@@ -19,6 +21,15 @@ export default class ApiRecord {
         for(const attribute of acceptedAttributes)
             if(Object.keys(json).includes(attribute))
                 this[attribute] = json[attribute]
+
+        // Nested attributes
+        for(const key of Object.keys(this.constructor.nestedAttributes)) {
+            if(json[key]) {
+                this[key] = Array.from(json[key].map((value) => {
+                    return new this.constructor.nestedAttributes[key](value)
+                }))
+            }
+        }
     }
 
     static async getAll(params={}): Array<ApiRecord> {

@@ -1,10 +1,12 @@
 import ApiRecord from './ApiRecord'
+import Processing from './Processing'
 
 export default class Project extends ApiRecord {
     static endpoint:string = 'projects';
     static modelName:string = 'project';
     static niceName:string = 'Project';
     static acceptedAttributes:Array<string> = ['title', 'description', 'pipeline_type_id', 'pipeline'];
+    static nestedAttributes:Object = {processings: Processing};
 
     constructor();
     constructor(title:string, description:string, pipeline_type_id:number, pipeline:Object);
