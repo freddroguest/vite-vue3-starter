@@ -1,16 +1,11 @@
 <script setup lang="ts">
     import { ref, watch } from 'vue'
 
-    interface InputProps {
-        stripe: boolean
-        error: boolean
-        value: number
-    }
 
-    const props = withDefaults(defineProps<InputProps>(), {
-        stripe: true,
-        error: false,
-        value: 0
+    const props = defineProps({
+        stripe: {default: true},
+        error: {default: false},
+        value: {default: 0}
     })
     const progress:ref<number> = ref(props.value)
 
