@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
 import AnyProgressBar from './AnyProgressBar.vue';
+import ProcessingResume from './ProcessingResume.vue';
 
 // const emit = defineEmits(['save_change'])
 
@@ -75,7 +76,7 @@ const loadingTexts = [
                         <div>
                             <p class="text-3xl font-bold">Baiddy is processings your data !</p>
                             <p>It can take a while, you can leave this page and comeback later.</p>
-                            <VueTyper :text='loadingTexts' :shuffle='true' pre-erase-delay='3000' erase-style='backspace' erase-delay='35'></VueTyper>
+                            <VueTyper :text='loadingTexts' :shuffle='true' :pre-erase-delay='3000' erase-style='backspace' :erase-delay='35'></VueTyper>
                         </div>
                     </div>
                     <div class="w-fit m-[0.85rem]">
@@ -105,7 +106,7 @@ const loadingTexts = [
                     <p>Last processing</p>
                 </template>
                 <template #content>
-                    Something
+                    <ProcessingResume :processing="project.processings[2]"/>
                 </template>
             </Card>
             <Card class="col-span-3">
@@ -123,9 +124,7 @@ const loadingTexts = [
                     <p>All processings</p>
                 </template>
                 <template #content>
-                    <p>
-                        Lorem ipsum dolor sit amet
-                    </p>
+                    {{ project.processings }}
                 </template>
             </Card>
         </div>
