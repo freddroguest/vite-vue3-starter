@@ -15,6 +15,9 @@ import 'primeicons/primeicons.css';
 import 'primevue/resources/primevue.min.css';
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import OverlayPanel from "primevue/overlaypanel";
+import Tag from "primevue/tag";
+import Accordion from "primevue/accordion";
+import AccordionTab from "primevue/accordiontab";
 import ScrollPanel from "primevue/scrollpanel";
 import ToastService from "primevue/toastservice";
 import FileUpload from "primevue/fileupload";
@@ -42,6 +45,9 @@ app.use(ToastService)
 app.use(Particles);
 app.use(VueTyper)
 
+app.component("Tag", Tag)
+app.component("Accordion", Accordion)
+app.component("AccordionTab", AccordionTab)
 app.component("DataTable", DataTable)
 app.component("Column", Column)
 app.component("Button", Button)

@@ -2,6 +2,7 @@
 import { ref, defineProps } from 'vue'
 import AnyProgressBar from './AnyProgressBar.vue';
 import ProcessingResume from './ProcessingResume.vue';
+import ProcessingAccordion from './ProcessingAccordion.vue';
 
 // const emit = defineEmits(['save_change'])
 
@@ -75,7 +76,7 @@ const loadingTexts = [
                     <div class="progress-body">
                         <div>
                             <p class="text-3xl font-bold">Baiddy is processings your data !</p>
-                            <p>It can take a while, you can leave this page and comeback later.</p>
+                            <p>It could take a while, you can leave this page and comeback later.</p>
                             <VueTyper :text='loadingTexts' :shuffle='true' :pre-erase-delay='3000' erase-style='backspace' :erase-delay='35'></VueTyper>
                         </div>
                     </div>
@@ -109,7 +110,7 @@ const loadingTexts = [
                     <ProcessingResume :processing="project.processings[2]"/>
                 </template>
             </Card>
-            <Card class="col-span-3">
+            <Card class="col-span-3 bg-success">
                 <template #title>
                     <p>Best processing</p>
                 </template>
@@ -124,7 +125,8 @@ const loadingTexts = [
                     <p>All processings</p>
                 </template>
                 <template #content>
-                    {{ project.processings }}
+                    <ProcessingAccordion v-if="project.processings?.length" :processings="project.processings" />
+                    <div v-else class="text-xl text-center italic">Run your first processing & comeback here to discover results !</div>
                 </template>
             </Card>
         </div>
@@ -148,6 +150,11 @@ const loadingTexts = [
 
 .progress-body {
     padding: 1.25rem;
+}
+
+.bg-success {
+    background-color: #6EC3C2;
+    color: white;
 }
 
 </style>
