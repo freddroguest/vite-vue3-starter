@@ -31,5 +31,28 @@ export default class Project extends ApiRecord {
         else {
             throw new Error("Bad arguments")
         }
+
+        // TODO Het Data from back
+        this.data_sample = {
+            'headers': [
+                {name: 'PMM', field: 'pmm'}, 
+                {name: 'Smoker', field: 'smoker'}, 
+                {name: 'ZQF', field: 'zqf'}, 
+                {name: 'Gender', field: 'gender'}, 
+                {name: 'Label', field: 'label'}
+            ],
+            'data': [
+                {pmm: 12, smoker: 1, zqf: 342, gender: 'M', label: 1},
+                {pmm: 19, smoker: 0, zqf: 22, gender: 'F', label: 0},
+                {pmm: 5, smoker: 1, zqf: 32, gender: 'M', label: 0},
+                {pmm: 3, smoker: 0, zqf: 89, gender: 'M', label: 0},
+                {pmm: 19, smoker: 1, zqf: 2, gender: 'M', label: 1},
+                {pmm: 9, smoker: 0, zqf: 1879, gender: 'F', label: 1},
+                {pmm: 11, smoker: 1, zqf: 17, gender: 'F', label: 0},
+                {pmm: 16, smoker: 0, zqf: 762, gender: 'M', label: 0},
+                {pmm: 8, smoker: 1, zqf: 102, gender: 'M', label: 1},
+                {pmm: 8, smoker: 0, zqf: 754, gender: 'M', label: 1}
+            ]
+        }
     }
 }

@@ -2,6 +2,8 @@
 import {onMounted, ref } from "vue";
 import {useRoute, onBeforeRouteUpdate} from "vue-router";
 
+import ShowProject from '../components/ShowProject.vue'
+
 import PipeLine from '../components/PipeLine.vue'
 import Project from '../types/Project'
 
@@ -30,8 +32,11 @@ const save = () => {
 </script>
 
 <template>
-  <div v-if="project" class="pipeline_container">
-    <PipeLine :json_pipeline="project.pipeline" :key="project.id" @save_change="save()"/>
+  <div v-if="project" >
+    <ShowProject mode="basic" :project="project" :key="project.id"/>
+    <div class="pipeline_container">
+      <PipeLine :json_pipeline="project.pipeline" :key="project.id" @save_change="save()"/>
+    </div>
   </div>
 </template>
 
