@@ -74,7 +74,7 @@
 }
 
 .new-project-form.with-selected-file {
-  padding-top: 30vh;
+  padding-top: 20vh;
   padding-bottom: 40vh;
 }
 
