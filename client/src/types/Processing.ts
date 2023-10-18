@@ -38,8 +38,15 @@ export default class Processing extends ApiRecord {
     }
 
     bestResult() {
-        if(this.results)
-            return this.results[0]
+        if(this.results) {
+            let bestIndex = 0
+
+            for(let index in this.results.slice(1))
+                if(this.results[index].mainMetric().value > this.results[bestIndex].mainMetric().value)
+                    bestIndex = index
+
+            return this.results[bestIndex]
+        }
         else
             return undefined
     }

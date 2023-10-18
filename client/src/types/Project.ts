@@ -57,4 +57,22 @@ export default class Project extends ApiRecord {
             ]
         }
     }
+
+    bestProcessing() {
+        if(this.processings) {
+            let best = {index: 0, value: this.processings[0].bestResult()?.mainMetric().value}
+
+            for(let index in this.processings.slice(1)) {
+                let newValue = this.processings[index].bestResult()?.mainMetric().value 
+                if(newValue !== undefined && best.value === undefined || newValue > best.value) {
+                    best.index = index
+                    best.value = newValue
+                }
+            }
+            
+            return this.processings[best.index]
+        }
+        else
+            return undefined
+    }
 }
